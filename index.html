@@ -274,27 +274,44 @@
   .yt-panel h2{font-size:clamp(26px,3.2vw,36px);font-weight:600;line-height:1.35;margin-bottom:20px;}
   .yt-panel p{color:var(--ivory-dim);font-size:15.5px;margin-bottom:28px;}
   .yt-card{
+    display:block;
     border:1px solid var(--line);
     background:var(--navy-800);
     overflow:hidden;
     transition:border-color .2s;
   }
   .yt-card:hover{border-color:var(--brass);}
-  .yt-embed{
+  .yt-card:hover .yt-play{background:var(--brass-light);transform:translate(-50%,-50%) scale(1.08);}
+  .yt-thumb{
     position:relative;
     width:100%;
     padding-top:56.25%;
     background:var(--navy-950);
   }
-  .yt-embed iframe{
+  .yt-thumb img{
     position:absolute;inset:0;
     width:100%;height:100%;
-    border:0;
+    object-fit:cover;
+  }
+  .yt-play{
+    position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    width:64px;height:64px;border-radius:50%;
+    background:var(--brass);
+    display:flex;align-items:center;justify-content:center;
+    transition:background .2s, transform .2s;
+    box-shadow:0 8px 24px rgba(0,0,0,0.35);
+  }
+  .yt-play::after{
+    content:'';
+    border-left:18px solid var(--navy-950);
+    border-top:11px solid transparent;
+    border-bottom:11px solid transparent;
+    margin-left:5px;
   }
   .yt-caption{padding:24px 28px;}
-  .yt-caption p{font-size:15px;color:var(--ivory);line-height:1.5;margin-bottom:10px;}
-  .yt-caption a{font-size:14px;color:var(--brass-light);border-bottom:1px solid transparent;transition:border-color .2s;}
-  .yt-caption a:hover{border-color:var(--brass-light);}
+  .yt-caption p{font-size:15px;color:var(--ivory);line-height:1.5;margin-bottom:8px;}
+  .yt-caption span{font-size:14px;color:var(--brass-light);}
 
   /* Blog / cases */
   .case-grid{
@@ -528,15 +545,16 @@
         <h2>말이 아닌 사건으로<br>설명하는 채널</h2>
         <p>공무집행방해 사건 전문 변호사 채널에서는 실제 상담 사례를 바탕으로 공무집행방해죄의 성립 요건과 대응 방법을 직접 설명합니다. 조사를 앞두고 있다면 영상으로 먼저 흐름을 파악해 보세요.</p>
       </div>
-      <div class="yt-card">
-        <div class="yt-embed">
-          <iframe src="https://www.youtube.com/embed/videoseries?list=UUVkLxIvWSxWeX3Nj1PYKImg" title="공무집행방해 사건 전문 변호사 채널 영상" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      <a class="yt-card" href="https://www.youtube.com/watch?v=hBcadxFxfng" target="_blank" rel="noopener">
+        <div class="yt-thumb">
+          <img src="https://img.youtube.com/vi/hBcadxFxfng/maxresdefault.jpg" alt="박석주 변호사 유튜브 영상 썸네일" loading="lazy" onerror="this.onerror=null;this.src='https://img.youtube.com/vi/hBcadxFxfng/hqdefault.jpg';">
+          <div class="yt-play"></div>
         </div>
         <div class="yt-caption">
           <p>박석주 변호사가 직접 전달하는 공무집행방해 사건 사례와 노하우</p>
-          <a href="https://www.youtube.com/@oleunlaw" target="_blank" rel="noopener">youtube.com/@oleunlaw</a>
+          <span>youtube.com/@oleunlaw</span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
